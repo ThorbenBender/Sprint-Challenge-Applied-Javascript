@@ -17,21 +17,28 @@ class Carousel {
         this.rightButton.addEventListener('click', () => this.increase());
     }
     increase(){
-        this.imgs.forEach(img => img.style.display = 'none');
-        if(this.imgIndex >= this.imgs.length - 1){
-            this.imgIndex = 0;
-        }
         this.imgIndex++;
+        this.imgs.forEach(img => img.style.display = 'none');
+        if(this.imgIndex > this.imgs.length - 1){
+            this.imgIndex = 0;
+            console.log(this.imgIndex);
+        } else {
+            console.log(this.imgIndex);
+        }
         this.currentImg = this.imgs[this.imgIndex];
         this.currentImg.style.display = 'block';
-        console.log(this.imgIndex);
     }
     decrease(){
+        this.imgIndex--;
         this.imgs.forEach(img => img.style.display = 'none');
         if (this.imgIndex < 0){
-            this.imgIndex = this.img.length - 1;
+            this.imgIndex = this.imgs.length - 1;
+            console.log(this.imgIndex);
+        } else {
+            console.log(this.imgIndex);
         }
-        imgIndex--;
+        this.currentImg = this.imgs[this.imgIndex];
+        this.currentImg.style.display = 'block';
     }
 }
 
